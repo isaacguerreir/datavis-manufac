@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useRef, useEffect } from 'react'
 
-function App() {
+import ForceGraph from 'react-force-graph-2d'
+
+export default function App() {
+	const ref = useRef(null)
+  let data = {
+    nodes: [{}, {}, {}],
+    links: []
+  }
+  const arrive = {
+    
+  }
+
+  const onClick = () => {
+    console.log(data)
+    data.nodes[0].x = 0
+    data.nodes[0].y = 0
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={onClick}>Hello</button>
+        <ForceGraph
+          ref={ref}
+					graphData={data}
+				/>
+    </>
   );
 }
 
-export default App;
